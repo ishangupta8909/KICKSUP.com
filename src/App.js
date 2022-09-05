@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {  faFilter, faMagnifyingGlass, faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
+// import shoe1 from "./assets/shoe1.png";
+// import shoe2 from "./assets/shoe2.png";
+
+
+// import { faStar as HollowStar } from '@fortawesome/free-regular-svg-icons'
+// import { faGithub, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import Navbar from './pages/Navbar';
+import Store from './pages/Store';
+import Contact from './pages/Contact.';
+import Team from './pages/Team';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+
+      {/* <Store /> */}
+      {/* <Contact /> */}
+      {/* <Team /> */}
+
+    </>
   );
 }
 

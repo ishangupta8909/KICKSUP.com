@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "GoboldRegular";
+  src: local("GoboldRegular"),
+  url("./fonts/Gobold_Regular.otf") format("opentype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "ProductSans";
+  src: local("ProductSans"),
+  url("./fonts/Product_Sans.ttf") format("truetype");
+  font-weight: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: ProductSans, sans-serif;
 }
+

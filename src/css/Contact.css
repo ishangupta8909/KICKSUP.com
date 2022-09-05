@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contact-card{
+    font-weight: 400;
+    margin-inline: 37%;
+    margin-top: 2rem;
+   
+}
+
+.contact-items{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-block: 15%;
+    padding-inline: 15%;
+    gap: 1rem;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.contact-items p{
+    font-size: 1rem;
+    font-weight: 100;
+    align-self: center;
+}
+
+.contact-heading{
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+
+.contact-footer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-block: 1.2rem;
+    gap: .2rem;
+}
