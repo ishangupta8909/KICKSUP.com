@@ -16,10 +16,10 @@ export default function Store(){
     template:"",
     type:""
   });
-  const [items,setItems] = useState([]);
+  // const [items,setItems] = useState([]);
   const [isVisible,setIsVisible] =useState(true);
   const [isCostly,setCostly] =useState(true);
-  let imgUrlCart =shoe1 ;
+  // let imgUrlCart =shoe1 ;
   const navigate= useNavigate();
 
   function handleCostly(event){
@@ -299,7 +299,7 @@ export default function Store(){
         <div className='cart-area' data-text="What's stopping you, designer?">
         <div className='area-container'>
           <ul>
-            {
+            {/* {
               items.map(item =>{
                 if(item === "shoe1" || item === "shoe3"){ 
                   imgUrlCart=shoe1; 
@@ -317,7 +317,7 @@ export default function Store(){
                   </>
                 );
               })
-            }
+            } */}
           </ul>
           </div>
         </div>

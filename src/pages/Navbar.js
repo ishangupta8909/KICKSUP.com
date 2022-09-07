@@ -1,12 +1,6 @@
 import shieldLogo from '../assets/badge.png';
 import '../css/Navbar.css';
 import profile from "../assets/profile.png";
-import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import TheJourney from './TheJourney';
-import Team from './Team';
-import Store from './Store';
-import Contact from './Contact.';
 
 import { NavLink } from 'react-router-dom';
 

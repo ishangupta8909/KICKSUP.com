@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faStar, faStarHalfStroke, faLocationDot, faLessThan} from '@fortawesome/free-solid-svg-icons';
 import { faStar as HollowStar, faCalendar } from '@fortawesome/free-regular-svg-icons';
 // import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' ;
-import shoe1 from "../assets/shoe1.png";
+
 import shoe2 from "../assets/shoe2.png";
 import chessBoard1 from "../assets/chessboard1.png";
 import chessBoard2 from "../assets/chessboard2.png";
