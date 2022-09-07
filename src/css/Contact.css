@@ -5,21 +5,25 @@
 
 .contact-card{
     font-weight: 400;
-    margin-inline: 37%;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
    
 }
 
 .contact-items{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* flex-wrap: wrap; */
+    justify-content: last baseline;
     align-items: flex-start;
-    padding-block: 15%;
-    padding-inline: 15%;
+    padding-block: 5%;
+    margin-inline: 30%; 
+    padding-inline: 4rem;
     gap: 1rem;
-
+    background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .contact-items p{

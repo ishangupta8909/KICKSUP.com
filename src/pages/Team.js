@@ -15,117 +15,118 @@ export default function Team(){
 
     return(
         <>
-            <div className='team-text'>
-                <div>
-                <h1>Without bonding and coordination, every project is a failure. Look at who makes KICKSUP great. ;)
-                </h1>
-                </div>
-            </div>
-
-            <div className='team-container'>    
-                <div className='team-grid-container'>
-                    <div className="team-card">
-                     <div className='card-img'>
-                        <img src={zidane} alt="zidane.jpg" />
-                     </div>
-                     <div className='card-title'>
-                       <span>Zidane</span>
-                     </div>
-                     <div className='card-job'>
-                       <span>Leadership & management</span>
-                     </div>
-                     <div className='card-social'>
-                       <div>
-                        <img src={linkedin} width="16px" alt="in" />
-                        </div>
-                        <div>
-                        <img src={medium} width="16px" alt="M" />
-                        </div>
-                        <div>
-                        <img src={facebook} width="16px" alt="f" />
-                       </div>
-                     </div>
-                    </div>
-                    <div className="team-card">
-                    <div className='card-img'>
-                        <img src={tonikroos} alt="tonikroos.jpg" />
-                    </div>
-                    <div className='card-title'>
-                       <span>Toni Kroos</span>
-                    </div>
-                    <div className='card-job'>
-                       <span>Product developer</span>
-                    </div>
-                    <div className='card-social'>
-                       <div>
-                        <img src={linkedin} width="16px" alt="in" />
-                        </div>
-                        <div>
-                        <img src={medium} width="16px" alt="M" />
-                        </div>
-                    </div>
-                    </div>
-                    <div className="team-card">
-                    <div className='card-img'>
-                        <img src={ikercasillas} alt="ikercasillas.jpg" />
-                    </div>
-                    <div className='card-title'>
-                       <span>Iker Casillias</span>
-                    </div>
-                    <div className='card-job'>
-                       <span>Marketing strategy</span>
-                    </div>
-                    <div className='card-social'>
-                       <div>
-                        <img src={medium} width="16px" alt="M" />
-                        </div>
-                    </div>
-                    </div>
-                    <div className="team-card">
-                    <div className='card-img'>
-                        <img src={james} alt="james.jpg" />
-                    </div>
-                    <div className='card-title'>
-                       <span>James</span>
-                    </div>
-                    <div className='card-job'>
-                       <span>Product designer</span>
-                    </div>
-                    <div className='card-social'>
-                       <div>
-                        <img src={medium} width="16px" alt="M" /></div>
-                        <div>
-                        <img src={nba} width="16px" alt="0" />
-                        </div>
-                        <div>
-                        <img src={be} width="16px" alt="be" />
-                       </div>
-                    </div>
-                    </div>
-                    <div className="team-card">
-                    <div className='card-img'>
-                        <img src={christiano} alt="christiano.jpg" />
-                    </div>
-                    <div className='card-title'>
-                       <span>Cristiano</span>
-                    </div>
-                    <div className='card-job'>
-                       <span>Financial operations</span>
-                    </div>
-                    <div className='card-social'>
-                       <div>
-                        <img src={linkedin} width="16px" alt="in" />
-                        </div>
-                        <div>
-                        <img src={facebook} width="16px" alt="fb" />
-                       </div>
-                    </div>
+            <section id='Team'>
+                <div className='team-text'>
+                    <div>
+                    <h1>Without bonding and coordination, every project is a failure. Look at who makes KICKSUP great. ;)
+                    </h1>
                     </div>
                 </div>
-                <div className='team-text extra-big'>
-                    <h1>And You! ;)</h1>
+                <div className='team-container'>
+                    <div className='team-grid-container'>
+                        <div className="team-card">
+                         <div className='card-img'>
+                            <img src={zidane} alt="zidane.jpg" />
+                         </div>
+                         <div className='card-title'>
+                           <span>Zidane</span>
+                         </div>
+                         <div className='card-job'>
+                           <span>Leadership & management</span>
+                         </div>
+                         <div className='card-social'>
+                           <div>
+                            <img src={linkedin} width="16px" alt="in" />
+                            </div>
+                            <div>
+                            <img src={medium} width="16px" alt="M" />
+                            </div>
+                            <div>
+                            <img src={facebook} width="16px" alt="f" />
+                           </div>
+                         </div>
+                        </div>
+                        <div className="team-card">
+                        <div className='card-img'>
+                            <img src={tonikroos} alt="tonikroos.jpg" />
+                        </div>
+                        <div className='card-title'>
+                           <span>Toni Kroos</span>
+                        </div>
+                        <div className='card-job'>
+                           <span>Product developer</span>
+                        </div>
+                        <div className='card-social'>
+                           <div>
+                            <img src={linkedin} width="16px" alt="in" />
+                            </div>
+                            <div>
+                            <img src={medium} width="16px" alt="M" />
+                            </div>
+                        </div>
+                        </div>
+                        <div className="team-card">
+                        <div className='card-img'>
+                            <img src={ikercasillas} alt="ikercasillas.jpg" />
+                        </div>
+                        <div className='card-title'>
+                           <span>Iker Casillias</span>
+                        </div>
+                        <div className='card-job'>
+                           <span>Marketing strategy</span>
+                        </div>
+                        <div className='card-social'>
+                           <div>
+                            <img src={medium} width="16px" alt="M" />
+                            </div>
+                        </div>
+                        </div>
+                        <div className="team-card">
+                        <div className='card-img'>
+                            <img src={james} alt="james.jpg" />
+                        </div>
+                        <div className='card-title'>
+                           <span>James</span>
+                        </div>
+                        <div className='card-job'>
+                           <span>Product designer</span>
+                        </div>
+                        <div className='card-social'>
+                           <div>
+                            <img src={medium} width="16px" alt="M" /></div>
+                            <div>
+                            <img src={nba} width="16px" alt="0" />
+                            </div>
+                            <div>
+                            <img src={be} width="16px" alt="be" />
+                           </div>
+                        </div>
+                        </div>
+                        <div className="team-card">
+                        <div className='card-img'>
+                            <img src={christiano} alt="christiano.jpg" />
+                        </div>
+                        <div className='card-title'>
+                           <span>Cristiano</span>
+                        </div>
+                        <div className='card-job'>
+                           <span>Financial operations</span>
+                        </div>
+                        <div className='card-social'>
+                           <div>
+                            <img src={linkedin} width="16px" alt="in" />
+                            </div>
+                            <div>
+                            <img src={facebook} width="16px" alt="fb" />
+                           </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className='team-text extra-big'>
+                        <h1>And You! ;)</h1>
+                    </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 }

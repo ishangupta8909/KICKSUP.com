@@ -1,0 +1,23 @@
+
+.self-promotion{
+    font-family: var(--ff-accent);
+    font-size: x-large;
+    margin-inline: 1rem;
+    
+}
+.self-promotion h1{
+    padding: 1rem;
+}
+.self-promotion img{
+    opacity: 0.65;
+    height: 500px;
+    object-fit: cover;
+}
+.home-flex{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin:1rem ;
+}

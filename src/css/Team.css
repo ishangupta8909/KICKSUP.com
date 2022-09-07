@@ -26,6 +26,7 @@
     justify-content: center;
     grid-template-columns:repeat(5,150px);
     grid-auto-columns:minmax(300px,auto);
+
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
@@ -37,6 +38,7 @@
 }
 
 .team-card{
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     /* gap: .2rem; */
@@ -45,6 +47,7 @@
     /* margin-inline: 40%; */
     /* margin-block: 1rem; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 

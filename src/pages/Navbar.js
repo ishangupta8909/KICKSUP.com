@@ -1,8 +1,14 @@
-import logo from '../assets/websitelogo.png';
+import shieldLogo from '../assets/badge.png';
 import '../css/Navbar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faUser } from '@fortawesome/free-regular-svg-icons';
-// import { faGithub, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import profile from "../assets/profile.png";
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import TheJourney from './TheJourney';
+import Team from './Team';
+import Store from './Store';
+import Contact from './Contact.';
+
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar(){
 
@@ -12,32 +18,34 @@ export default function Navbar(){
     <div className='navbar-header'>
     <div className="navbar-items">
         <div>
-        <img src={logo} className="navbar-logo" alt="logo" />
+        <img src={shieldLogo} className="navbar-logo" alt="logo" />
         </div>
-        
-    
         <div className='navbar-links'>
 
         <div className='flex-container'>
-        <div className='flex-items'>
-        <a href='#Home'>HOME</a>
-        </div>
-        <div className='flex-items'>
-        <a href='#TheJourney'>THEJOURNEY</a>
-        </div>
-        <div className='flex-items'>
-        <a href='#Team'>TEAM</a>
-        </div>
-        <div className='flex-items'>
-        <a href='#Store'>STORE</a>
-        </div>
-        <div className='flex-items'>
-        <a href='#Contact'>CONTACT</a>
-        </div>    
+        
+            <div className='flex-items'>
+            <NavLink to="/" className={(navlink) => (navlink.isActive ? 'active' : null )} >
+            HOME</NavLink>
+            </div>
+            <div className='flex-items'>
+            {/* <a href='#TheJourney'>THEJOURNEY</a> */}
+            <NavLink to="/thejourney" className={(navlink) => (navlink.isActive ? 'active' : null)}  >THEJOURNEY</NavLink>
+            </div>
+            <div className='flex-items'>
+            {/* <a href='#Team'>TEAM</a> */}
+            <NavLink to="/team"  className={(navlink) => (navlink.isActive ? 'active' : null )} >TEAM</NavLink>
+            </div>
+            <div className='flex-items'>
+            <NavLink to="/store"  className={(navlink) => (navlink.isActive ? 'active' : null )} >STORE</NavLink>
+            </div>
+            <div className='flex-items'>
+            <NavLink to="/contact"  className={(navlink) => (navlink.isActive ? 'active' : null )} >CONTACT</NavLink>
+            </div>
         </div>
         </div>
         <div className='nav-flex-container'>
-        <FontAwesomeIcon icon={faUser} size="2x" />
+        <img src={profile} alt="profile" width="16px" />
         <div>
         <p>GAGAN</p>
         </div>           

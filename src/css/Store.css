@@ -4,9 +4,10 @@
 
 .grid-container{
     padding-inline: .5rem;
-    
+    background-color: #FFF;
     display: grid;
-    /* height: 100vh; */
+    height: 79vh;
+
     gap: .5rem;
     grid-template-columns:1fr 2fr 1fr;
     grid-auto-columns:minmax(300px,auto);
@@ -15,8 +16,8 @@
 
 .grid-items{
   width: 100%;
-    
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.09), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 
@@ -48,15 +49,17 @@
 
 .filters{
   font-size: .4rem;
+  padding-block: .2em;
 }
 
 .shoe-container{
   display: grid;
   box-sizing: border-box;
   padding-inline: 1rem;
+  padding-bottom: .4rem;
   gap:10px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(75px , auto);
+    grid-auto-rows: minmax(75px , 100%);
 }
 
 .shoe-items{
@@ -101,7 +104,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
-
+    padding-top: 5%;
 }
 
 .filter-button button{
@@ -112,24 +115,24 @@
     padding: 4px 6px;
 }
 
-
-
-
 .cart-area{
   /* display */
   min-width: 100%;
-  min-height: 80%;
-  
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.09); 
+  /* min-height: 80%; */  
 }
 
 .cart-default{
   margin-inline: 1rem;
 }
-.cart-area:empty::before {
+
+.cart-area :empty::before {
   padding-block: 70%;
   content: attr(data-text);
 }
+
+/* .cart-area::after{
+  context: "";
+} */
 
 .cart-area-items{
   margin-top: .5rem;
@@ -138,10 +141,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 } 
+/* .area-container{
+  overflow-y: auto;
+} */
 
 
-.cart-button button{
+.cart-button button:first-of-type{
     background-color: #999;
     color: #FFF;
     border: 0;

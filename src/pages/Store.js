@@ -1,76 +1,90 @@
 import '../css/Store.css';
-import React from "react";
+import { useNavigate } from 'react-router-dom';
+import React,{ useState }   from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faFilter, faMagnifyingGlass, faStar, faStarHalfStroke, faShoppingBag, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import {  faMagnifyingGlass, faStar, faStarHalfStroke, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faStar as HollowStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import shoe1 from "../assets/shoe1.png";
 import shoe2 from "../assets/shoe2.png";
-import { faStar as HollowStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
-import { useState } from 'react';
-
-// const data = [
-//   {
-//   id:"shoe1",
-//   imgUrl:"shoe1",
-//   title: "KSL 01",
-//   price:"Rs. 2000",
-//   stars: [3,1]
-// },
-// {
-//   id:"shoe2",
-//   imgUrl:"shoe2",
-//   title: "KSW 01",
-//   price:"Rs. 2500",
-//   stars:[2,1]
-// },
-// {
-//   id:"shoe1",
-//   imgUrl:"shoe1",
-//   title: "KSL 01",
-//   price:"Rs. 2000",
-//   stars:[4,1]
-// }
-// ];
+import funnel from "../assets/funnel.png";
+import cart from "../assets/cart.png";
 
 export default function Store(){
 
+  const[shoeProps,setProps]= useState({
+    cost:"",
+    template:"",
+    type:""
+  });
   const [items,setItems] = useState([]);
+  const [isVisible,setIsVisible] =useState(true);
+  const [isCostly,setCostly] =useState(true);
   let imgUrlCart =shoe1 ;
+  const navigate= useNavigate();
+
+  function handleCostly(event){
+    // console.log(event.target.value);
+    if(event.target.value === 4000){
+       setCostly(false);
+    }
+    if(!(event.terget.value === 4000)){
+       setCostly(true); 
+      }
+    event.preventDefault();
+  }
+
+  function handleRadio(event){
+
+    if(event.target.value === "loafers"){
+    setIsVisible(false);
+    }
+    if(event.target.value === "sneakers"){
+      setIsVisible(true);
+    }
+    event.preventDefault();
+  }
+
+  function handleApplyButton(event){
+    
+    const data = new FormData(document.querySelector("form"));
+    let output ="";
+    for (const entry of data){
+      setProps(...prevValue =>{
+        return{ ...prevValue , [entry[0]] : entry[1] };
+      })
+      // console.log(entry);
+      output = `${output}${entry[0]}=${entry[1]}\r`;
+    };
+    // console.log(output);
+    console.log(shoeProps);
+    event.preventDefault();
+  }
+
   function handleCLick(event){
+    event.preventDefault();
     console.log(event.target.alt);
     const shoeName = event.target.alt;
     
     if(shoeName === "shoe1"){
-      setItems(prevValues => {
-        return [...prevValues , shoeName];
-        
-      });
-      console.log(items);
+      navigate("./shoe1");
     }
     else if(shoeName === "shoe2"){
-      setItems(prevValues => {
-        return [...prevValues , shoeName];
-
-      });
-      console.log(items);
-    }else if(shoeName === "shoe3"){
-      setItems(prevValues => {
-        return [...prevValues , shoeName];
-      });
-      console.log(items);
+      navigate("./shoe2");
     }
-   console.log(shoeName);
+    else if(shoeName === "shoe3"){
+      navigate("./shoe3");
   }
-
+  }
     return(
 <>
     <section id="Store" >
        <div className='grid-container'>
         <div className='grid-items'>
-          
+        <form>
             
               <div className='store-heading'>
               <p className='filters'>FILTERS</p>
-              <FontAwesomeIcon icon={faFilter} size="3x" />
+              <img src={funnel} width="16px" alt="funnel" />
               </div>
               <div className="space-flex">
               <div className='cost-container'>
@@ -78,15 +92,15 @@ export default function Store(){
               <div className='cost-filters'>
               <ul>
               <li>
-                  <input type="radio" id="cost" name="cost" value="4000" />
+                  <input onChange={handleCostly} type="radio" id="cost" name="cost" value="4000" />
                     <label for="cost">Rs. 1500-4000</label>
               </li>
               <li>
-                  <input type="radio" id="cost" name="cost" value="7000" />
+                  <input onChange={handleCostly} type="radio" id="cost" name="cost" value="7000" />
                     <label for="cost">Rs. 4001-7000</label>
               </li>
               <li>
-                  <input type="radio" id="cost" name="cost" value="10000" defaultChecked />
+                  <input onChange={handleCostly} type="radio" id="cost" name="cost" value="10000" />
                     <label for="cost">Rs. 7000+</label>
               </li>
                 </ul>
@@ -119,21 +133,21 @@ export default function Store(){
               <div className='type-filters'>
               <ul>
               <li>
-                  <input type="radio" id="type" name="type" value="loafers" />
+                  <input onChange={handleRadio} type="radio" id="type" name="type" value="loafers" />
                     <label for="type">Loafers</label>
               </li>
               <li>
-                  <input type="radio" id="type" name="type" value="sneakers" />
+                  <input onChange={handleRadio} type="radio" id="type" name="type" value="sneakers"  />
                     <label for="type">Sneakers</label>
               </li>
                 </ul>
               </div>
             </div>
             <div className='filter-button'>
-            <button type='submit'>apply</button>
+            <button onClick={handleApplyButton} type='submit'>apply</button>
             </div>
             </div>
-            
+            </form>  
         </div>
         <div className='grid-items'>
          <div className='filter-heading'>
@@ -142,9 +156,8 @@ export default function Store(){
            <span className='give-borders'>sort by</span>
            </div>
          </div>
-         <div className='shoe-container'>
-        
-        <div className='shoe-items'>
+         <div className='shoe-container' style={{"visibility": isVisible ? "visible" : "hidden"}}>
+        <div className='shoe-items' >
             <div className='img-container need-padding'  onClick={handleCLick} name="shoe1">
             <img src={shoe1} width="100%" alt="shoe1" />
             </div>
@@ -154,11 +167,11 @@ export default function Store(){
             <div className='shoe-details'>
             <div>Rs 2000/-</div>
             <div>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStarHalfStroke} size=".5x" color='yellow' /> 
-            <FontAwesomeIcon icon={HollowStar} size=".5x" color='yellow' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStarHalfStroke} size="1x" color='gold' /> 
+            <FontAwesomeIcon icon={HollowStar} size="1x" color='gold' />
             </div>
             
             </div>
@@ -171,17 +184,17 @@ export default function Store(){
             <div className='shoe-details'>
             <div>Rs 2500/-</div>
             <div>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow'/>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow'/>
-            <FontAwesomeIcon icon={faStarHalfStroke} size=".5x" color='yellow' /> 
-            <FontAwesomeIcon icon={HollowStar} size=".5x" color='yellow'/>
-            <FontAwesomeIcon icon={HollowStar} size=".5x" color='yellow'/>
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold'/>
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold'/>
+            <FontAwesomeIcon icon={faStarHalfStroke} size="1x" color='gold' /> 
+            <FontAwesomeIcon icon={HollowStar} size="1x" color='gold'/>
+            <FontAwesomeIcon icon={HollowStar} size="1x" color='gold'/>
             </div>
             
             </div>
             
          </div>
-         <div className='shoe-items'>
+         <div className='shoe-items' style={{"opacity": isCostly ? 1 : 0}}>
             <div className='img-container need-padding'  onClick={handleCLick} name="shoe3">
             <img src={shoe1} width="100%" alt="shoe3"/>
             </div>
@@ -191,11 +204,11 @@ export default function Store(){
             <div className='shoe-details'>
             <div>Rs 6000/-</div>
             <div>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow'/>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow'/>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow'/>
-            <FontAwesomeIcon icon={faStar} size=".5x"  color='yellow'/>
-            <FontAwesomeIcon icon={faStarHalfStroke} size=".5x"  color='yellow'/> 
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold'/>
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold'/>
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold'/>
+            <FontAwesomeIcon icon={faStar} size="1x"  color='gold'/>
+            <FontAwesomeIcon icon={faStarHalfStroke} size="1x"  color='gold'/> 
             </div>
             
             </div>
@@ -211,11 +224,11 @@ export default function Store(){
             <div className='shoe-details'>
             <div>Rs 2000</div>
             <div>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStarHalfStroke} size=".5x" color='yellow' /> 
-            <FontAwesomeIcon icon={HollowStar} size=".5x" color='yellow' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStarHalfStroke} size="1x" color='gold' /> 
+            <FontAwesomeIcon icon={HollowStar} size="1x" color='gold' />
             </div>
             
             </div>
@@ -228,17 +241,17 @@ export default function Store(){
             <div className='shoe-details'>
             <div>Rs 2500</div>
             <div>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStarHalfStroke} size=".5x" color='yellow' /> 
-            <FontAwesomeIcon icon={HollowStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={HollowStar} size=".5x" color='yellow' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStarHalfStroke} size="1x" color='gold' /> 
+            <FontAwesomeIcon icon={HollowStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={HollowStar} size="1x" color='gold' />
             </div>
             
             </div>
             
          </div>
-         <div className='shoe-items'>
+         <div className='shoe-items' style={{"opacity": isCostly ?  1 : 0}}>
             <div className='img-container need-padding'  onClick={handleCLick} name="shoe3" >
             <img src={shoe1} width="100%" alt="shoe3" />
             </div>
@@ -248,11 +261,11 @@ export default function Store(){
             <div className='shoe-details'>
             <div>Rs 6000</div>
             <div>
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStar} size=".5x" color='yellow' />
-            <FontAwesomeIcon icon={faStarHalfStroke} size=".5x" color='yellow' /> 
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStar} size="1x" color='gold' />
+            <FontAwesomeIcon icon={faStarHalfStroke} size="1x" color='gold' /> 
             </div>
             
             </div>
@@ -264,9 +277,10 @@ export default function Store(){
 
         </div>  
         <div className='grid-items'>
+
          <div className='filter-heading'>
              <div> <p className='filters'>CART</p></div>
-              <FontAwesomeIcon icon={faShoppingBag} size="3x" />
+              <img src={cart} width="16px" alt="cart" />
          </div>
 
          <div>

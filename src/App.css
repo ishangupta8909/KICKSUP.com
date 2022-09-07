@@ -17,6 +17,8 @@ body{
   font-family: var(--ff-primary);
   font-weight: 500;
   font-size: .55rem;
+  background-color: #f2f3f4;
+
 }
 
 
